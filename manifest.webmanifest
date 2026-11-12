@@ -3,7 +3,7 @@
   "id": "/Kenai_Redstone/",
   "name": "Kenai_Redstone",
   "short_name": "Kenai",
-  "description": "El universo digital de Kenai_Redstone",
+  "description": "Aplicación oficial de Kenai_Redstone. Descubre mis proyectos, vídeos, Minecraft, CircoAC y redes sociales.",
   "lang": "es",
   "start_url": "/Kenai_Redstone/",
   "scope": "/Kenai_Redstone/",
@@ -26,4 +26,3 @@
     }
   ]
 }
-  
