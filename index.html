@@ -4,8 +4,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <meta name="theme-color" content="#050510">
 <meta name="description" content="Kenai_Redstone — Gaming, tecnología, Minecraft, CircoAC y creación de contenido.">
+<meta name="application-name" content="Kenai_Redstone">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- CONFIGURACIÓN PWA -->
+<link rel="manifest" href="/Kenai_Redstone/manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="/Kenai_Redstone/icons/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/Kenai_Redstone/icons/icon-512.png">
+<link rel="apple-touch-icon" href="/Kenai_Redstone/icons/icon-192.png">
+
 <title>KENAI_REDSTONE | ELECTRO 3D UNIVERSE</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -425,6 +437,7 @@ footer strong{color:var(--cyan);text-shadow:0 0 12px var(--cyan)}
   z-index:200;pointer-events:none;
   box-shadow:var(--glow);
 }
+
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
 @media(max-width:900px){
@@ -901,6 +914,30 @@ window.addEventListener("load",()=>{
     setTimeout(()=>toast.classList.remove("show"),2800);
   },700);
 });
+
+/* ==========================================
+   KENAI_REDSTONE - REGISTRO PWA
+========================================== */
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", async () => {
+    try {
+      const registration = await navigator.serviceWorker.register(
+        "/Kenai_Redstone/sw.js",
+        { scope: "/Kenai_Redstone/" }
+      );
+
+      console.log(
+        "KENAI_REDSTONE: PWA ACTIVADA",
+        registration.scope
+      );
+    } catch (error) {
+      console.error(
+        "KENAI_REDSTONE: ERROR AL ACTIVAR LA PWA",
+        error
+      );
+    }
+  });
+}
 </script>
 
 </body>
