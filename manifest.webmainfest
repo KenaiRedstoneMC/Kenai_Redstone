@@ -3,14 +3,14 @@
   "id": "/Kenai_Redstone/",
   "name": "Kenai_Redstone",
   "short_name": "Kenai",
-  "description": "El universo digital de Kenai_Redstone: Minecraft, CircoAC, vídeos y proyectos.",
+  "description": "El universo digital de Kenai_Redstone",
   "lang": "es",
   "start_url": "/Kenai_Redstone/",
   "scope": "/Kenai_Redstone/",
   "display": "standalone",
-  "orientation": "portrait",
-  "theme_color": "#070b18",
-  "background_color": "#070b18",
+  "orientation": "any",
+  "background_color": "#050510",
+  "theme_color": "#050510",
   "icons": [
     {
       "src": "/Kenai_Redstone/icons/icon-192.png",
@@ -23,12 +23,7 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
-    },
-    {
-      "src": "/Kenai_Redstone/icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
     }
   ]
 }
+  
