@@ -1,13 +1,19 @@
 
 const CACHE_NAME = "kenai-redstone-v1";
-const BASE = "/Kenai_Redstone/";
+
+const FILES_TO_CACHE = [
+  "/Kenai_Redstone/",
+  "/Kenai_Redstone/index.html",
+  "/Kenai_Redstone/manifest.webmanifest"
+];
 
 self.addEventListener("install", event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache =>
-      cache.addAll([BASE, BASE + "manifest.webmanifest"])
+      cache.addAll(FILES_TO_CACHE)
     )
   );
+
   self.skipWaiting();
 });
 
@@ -21,23 +27,35 @@ self.addEventListener("activate", event => {
       )
     )
   );
+
   self.clients.claim();
 });
 
 self.addEventListener("fetch", event => {
-  if (event.request.method !== "GET") return;
+  const request = event.request;
+
+  if (
+    request.method !== "GET" ||
+    new URL(request.url).origin !== self.location.origin
+  ) {
+    return;
+  }
 
   event.respondWith(
-    fetch(event.request)
+    fetch(request)
       .then(response => {
-        if (response.ok && new URL(event.request.url).origin === self.location.origin) {
+        if (response.ok) {
           const copy = response.clone();
-          caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
+          caches.open(CACHE_NAME).then(cache =>
+            cache.put(request, copy)
+          );
         }
         return response;
       })
-      .catch(() => caches.match(event.request).then(
-        cached => cached || caches.match(BASE)
-      ))
+      .catch(async () => {
+        const cached = await caches.match(request);
+        return cached || caches.match("/Kenai_Redstone/");
+      })
   );
 });
+  
