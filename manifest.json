@@ -1,0 +1,27 @@
+{
+  "id": "/Kenai_Redstone/",
+  "name": "Kenai_Redstone",
+  "short_name": "Kenai",
+  "description": "Aplicación oficial de Kenai_Redstone. Descubre mis proyectos, vídeos, Minecraft, CircoAC y redes sociales.",
+  "lang": "es",
+  "start_url": "/Kenai_Redstone/",
+  "scope": "/Kenai_Redstone/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#050510",
+  "theme_color": "#050510",
+  "icons": [
+    {
+      "src": "/Kenai_Redstone/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/Kenai_Redstone/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
